@@ -1,145 +1,532 @@
-Fixed the color contrast issue—header now uses high-contrast blue (#0d47a1) on white text, sections have stronger borders/shadows, and text is bolder for visibility (passes WCAG AA). Screenshot shows it clearly now. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/36828176/5b3ad4f4-14cf-4da4-a61f-8ac86d228705/image.jpg?AWSAccessKeyId=ASIA2F3EMEYEX4LA3M3L&Signature=ZeXJW6UWSrGDzdIuzDEpEvgyW3M%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEG4aCXVzLWVhc3QtMSJHMEUCIQC5fGHubulc5UiZYk%2Blh5bZKypzC6F4r8mWSYU7e2udeAIgdBoQckU8iF8YQiHtULISkiR%2BNEaNIQpL19D08XDwrEIq8wQINxABGgw2OTk3NTMzMDk3MDUiDEpyNBydglHCReBPoCrQBOE0r4T%2BT7TxnE4tUbB%2Bs%2FfALadQBwapTB5Aqqjlhqacvj%2F6vqJwi7eoCIPjMRRdHOUoFGyTmbEAD%2Bn80NsycYUxrWH0ykphNy%2BpJlkcoa%2B0YH6p5y%2Bokl60AqTGD1IDaNaXMtqJ6jqwZMP1jmrUFPZpg56h55QXX48Ot0qsnW8qpYC1iThuHOTyA4u9n3tgYFyrCgh3CDqbJbqQRrBb8UAg7PBW8UHfLYqjvR3gKowNN3pN3XUC4B7tiNQDcbmMCM4UDlr4QdWkbyFSztk1r3Q6E0fXMCxgsRwUJCwAHbTH916svE7h3KR1dK8gNi6OozkldV8XJqFBz8hRQpn%2Ft%2B7UjJUK9MAwUpZZ6LZ5Dj8tM7AvBekzTtI%2B8DbWKV6nHgfAaEbp0GaLf%2B4tvx9Cs4xtIzode7MhYPGK7pyB8lxu%2BoFprsYB7CDFSlEAuxu2e0MjFAvpUSmapKUpIaegeJYpeVSC6V%2BxcEv2UbSlN163Iz6s99dNWES4YmQlpu%2BjnhPKOyubGwN8E94a0B3HMU3GWE2PQ1Wkzt6vtvnc4kv1t41We0oAIAgXnYXyKTrusupKAfcMAM922JZ48HK5qNiLL3o3yl36Z472oD%2B3QnhIyWM3Sc858%2Bl8GQbFh6nxrl16x8mFnAByeRpYK%2F3nc96EYH%2BcfU45wRCiVudJdwtOCBV%2F0zex28VA%2Bd%2FA67d6BFJC226gTOCOyFpW3bYbPBg7aypzKlhEu9zQmR3M2LZTgrFhJmrHAtNSqJVotp9dG1NTp1H5St6z7CxfJVzKDfUw05j1zQY6mAF0AzWBvpSx4pwJBTIE336sdX%2FmerzNOr5Pg3oiRSD%2FOh0Qrrrhxh92MPMNRR1CMfHfT3e1CGiJrUfTGDUVE0Z%2Bm9ULOd%2F6aRqgpZaUtcnpE39seMcQ9olHSqJLSI3eXkl4AxkRVstn%2BZi9Nnx36AiQH3s6dkwikdaWxWB2V8vsR0IjTU4gV%2BH6D34yxnyj0K1lJeZ6gFSF%2BA%3D%3D&Expires=1774014125)
-
-## Updated index.html
-Upload this version; contrasts pop on all devices.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Srikanth Divi - Faculty Profile | MIT Manipal</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #1a1a1a; background: #e8ecef; font-weight: 500; }
-        header { background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%); color: #ffffff; padding: 2.5rem 1rem; text-align: center; box-shadow: 0 4px 20px rgba(13,71,161,0.3); }
-        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        header p { font-size: 1.2rem; opacity: 0.95; }
-        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; padding: 1.5rem 0; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
-        nav li { margin: 0 0.5rem; }
-        nav a { color: #ffffff; text-decoration: none; font-weight: 600; padding: 0.8rem 1.5rem; border-radius: 8px; transition: all 0.3s; border: 2px solid transparent; }
-        nav a:hover, .tab-active { background: #ffffff; color: #0d47a1 !important; border-color: #ffffff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-        section { padding: 2.5rem; max-width: 1200px; margin: 2rem auto; background: #ffffff; box-shadow: 0 6px 25px rgba(0,0,0,0.15); border-top: 6px solid #1976d2; display: none; border-radius: 12px; }
-        #details { display: block; border-top-color: #0d47a1; }
-        h2 { color: #0d47a1; font-size: 1.8rem; border-bottom: 4px solid #1976d2; padding-bottom: 1rem; margin-bottom: 1.5rem; font-weight: 700; }
-        h3 { color: #1976d2; font-size: 1.4rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600; }
-        ul { list-style: none; }
-        ul li { background: linear-gradient(90deg, #f8fbff 0%, #e3f2fd 100%); margin: 1rem 0; padding: 1.5rem; border-left: 6px solid #1976d2; border-radius: 0 12px 12px 0; box-shadow: 0 3px 10px rgba(25,118,210,0.1); transition: all 0.3s; }
-        ul li:hover { transform: translateX(5px); box-shadow: 0 5px 20px rgba(25,118,210,0.2); }
-        .pubs li { border-left-color: #2e7d32; background: linear-gradient(90deg, #f1f8e9 0%, #e8f5e8 100%); }
-        .pubs li:hover { box-shadow: 0 5px 20px rgba(46,125,50,0.2); }
-        .awards li { border-left-color: #f57c00; background: linear-gradient(90deg, #fff3e0 0%, #ffe0b2 100%); }
-        .awards li:hover { box-shadow: 0 5px 20px rgba(245,124,0,0.2); }
-        .photo { float: right; margin-left: 1.5rem; width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 5px solid #ffffff; box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
-        @media (max-width: 768px) { 
-            nav ul { flex-direction: column; padding: 1rem; } 
-            nav li { margin: 0.25rem 0; }
-            section { margin: 1rem; padding: 1.5rem; border-radius: 8px; } 
-            h1 { font-size: 2.2rem; } 
-            .photo { float: none; margin: 0 0 1.5rem 0; display: block; margin-left: auto; margin-right: auto; width: 140px; height: 140px; } 
-        }
-        a { color: #1976d2; font-weight: 600; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Srikanth Divi - Faculty Profile | MIT Manipal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.65;
+      color: #1f2937;
+      background: #eef3f8;
+    }
+
+    a {
+      color: #1565c0;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+      color: #ffffff;
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(13, 71, 161, 0.25);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.3px;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      opacity: 0.98;
+      margin-bottom: 1.5rem;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 1rem;
+      backdrop-filter: blur(6px);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    nav a {
+      display: inline-block;
+      background: #ffffff;
+      color: #0d47a1;
+      padding: 0.8rem 1.25rem;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 2px solid transparent;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      transition: all 0.25s ease;
+    }
+
+    nav a:hover {
+      text-decoration: none;
+      transform: translateY(-2px);
+      background: #e3f2fd;
+    }
+
+    nav a.active {
+      background: #0d47a1;
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 2rem auto;
+      padding: 0 1rem 2rem;
+    }
+
+    section.tab-section {
+      display: none;
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border-top: 6px solid #1976d2;
+    }
+
+    section.tab-section.active {
+      display: block;
+    }
+
+    h2 {
+      color: #0d47a1;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 4px solid #1976d2;
+    }
+
+    h3 {
+      color: #1565c0;
+      font-size: 1.25rem;
+      margin: 1.5rem 0 0.8rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.03rem;
+    }
+
+    .intro {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .intro-text {
+      flex: 1 1 680px;
+      min-width: 280px;
+    }
+
+    .photo-wrap {
+      flex: 0 0 170px;
+      text-align: center;
+    }
+
+    .photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #0d47a1;
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+    }
+
+    .photo-note {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    ul.info-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    ul.info-list li {
+      background: linear-gradient(90deg, #f8fbff 0%, #edf5ff 100%);
+      border-left: 6px solid #1976d2;
+      border-radius: 0 12px 12px 0;
+      padding: 1rem 1rem 1rem 1.1rem;
+      margin-bottom: 0.85rem;
+      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.08);
+    }
+
+    ul.publication-list li {
+      border-left-color: #2e7d32;
+      background: linear-gradient(90deg, #f4fbf4 0%, #ecf8ec 100%);
+    }
+
+    ul.teaching-list li {
+      border-left-color: #ef6c00;
+      background: linear-gradient(90deg, #fff7ed 0%, #ffedd5 100%);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .highlight-box {
+      background: #f8fbff;
+      border: 1px solid #d6e9ff;
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      margin-top: 1rem;
+    }
+
+    .muted {
+      color: #6b7280;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem 2rem;
+    }
+
+    @media (max-width: 900px) {
+      header h1 {
+        font-size: 2.3rem;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 2rem 1rem 1.5rem;
+      }
+
+      header h1 {
+        font-size: 1.9rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+
+      section.tab-section {
+        padding: 1.25rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      .photo-wrap {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Dr. Srikanth Divi</h1>
-        <p>Assistant Professor | Department of Chemical Engineering<br>Manipal Institute of Technology, Manipal Academy of Higher Education</p>
-        <nav>
-            <ul>
-                <li><a href="#details" class="tab-active" onclick="showTab('details')">Details</a></li>
-                <li><a href="#experience" onclick="showTab('experience')">Experience</a></li>
-                <li><a href="#projects" onclick="showTab('projects')">Projects</a></li>
-                <li><a href="#publications" onclick="showTab('publications')">Publications</a></li>
-                <li><a href="#research" onclick="showTab('research')">Research</a></li>
-                <li><a href="#coursework" onclick="showTab('coursework')">Teaching</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section id="details">
-        <img src="profile.jpg" alt="Dr. Srikanth Divi" class="photo">
-        <h2>Personal Details</h2>
-        <p><strong>Office:</strong> Department of Chemical Engineering, Manipal Institute of Technology,<br>Manipal, Karnataka, India - 576 104.<br>
-        <strong>Phone:</strong> +91-9490940904 | <strong>Email:</strong> <a href="mailto:srikanth.divi@manipal.edu">srikanth.divi@manipal.edu</a><br>
-        <a href="https://github.com/srikanth-divi" target="_blank">GitHub</a> | 
-        <a href="https://www.linkedin.com/in/srikanth-divi/" target="_blank">LinkedIn</a> | 
-        <a href="https://researcher.manipal.edu/en/persons/srikanth-divi/" target="_blank">Manipal Profile</a> | 
-        <a href="https://sites.google.com/view/srikanthdivi/" target="_blank">Portfolio</a></p>
-        <h3>Education</h3>
-        <ul>
-            <li>Ph.D., Chemical Engineering, IIT Bombay (2018)</li>
-            <li>M.E., Chemical Engineering, BITS Pilani - Goa Campus (2011)</li>
-            <li>B.Tech., Chemical Engineering, B.V. Raju Institute of Technology, JNTUH (2009)</li>
-        </ul>
-    </section>
-    
-    <section id="experience">
-        <h2>Professional Experience</h2>
-        <ul>
-            <li>Assistant Professor (Aug 2021–Present): Department of Chemical Engineering, Manipal Institute of Technology. Faculty Coordinator: Industrial Advisory Committee, B.Tech Projects.</li>
-            <li>Post-Doctoral Research Associate: Prof. Michail Stamatakis group, University College London, UK. Developed RI algorithm for KMC pattern recognition in Zacros software.</li>
-        </ul>
-    </section>
-    
-    <section id="projects">
-        <h2>Research Projects</h2>
-        <ul>
-            <li><a href="https://github.com/srikanth-divi/sim-codes" target="_blank">sim-codes Repo</a>: Molecular dynamics, accelerated MD, Monte Carlo simulations.</li>
-            <li>Nano-thermodynamic model for species distribution in multi-metal alloy nanoparticles (size-independent).</li>
-            <li>Tunable EAM potentials for binary/ternary alloys using experimental heats of mixing data.</li>
-            <li>Temperature-Programmed MD (TPMD): 10,000x speedup for rare events on Ag trimer/Ag(001).</li>
-            <li>Parallel Replica MD for silicon thin-film growth: Concerted atom moves, hops, exchanges.</li>
-            <li>Asphaltene aggregation inhibitors & Prednisolone encapsulation in PLGA carriers.</li>
-        </ul>
-    </section>
-    
-    <section id="publications">
-        <h2>Selected Publications</h2>
-        <ul class="pubs">
-            <li>S.Y. Udaykumar et al., "Extraction of Lithium Using Hydrophobic Deep Eutectic Solvent", <em>Ind. Eng. Chem. Res.</em> <strong>2026</strong>, 65, 799–808. <a href="https://doi.org/10.1021/acs.iecr.5c03979" target="_blank">DOI</a></li>
-            <li>G.N. Mathias et al., "Encapsulation of Curcumin in Nanoemulsions", <em>Ultrasonics Sonochemistry</em> <strong>2025</strong>. <a href="https://doi.org/10.1016/j.ultsonch.2025.107686" target="_blank">DOI</a></li>
-            <li>Y.U. Shamanth et al., "Lithium Extraction Using Ionic Liquids", <em>Journal of Ionic Liquids</em> <strong>2025</strong>. <a href="https://doi.org/10.1016/j.jil.2025.100177" target="_blank">DOI</a></li>
-            <li>A.K. Vatti et al., "Asphaltene Aggregation Inhibitors", <em>J. Chem. Phys.</em> <strong>2024</strong>, 160. <a href="https://doi.org/10.1063/5.0190779" target="_blank">DOI</a></li>
-            <li>S. Divi et al., "Prednisolone Encapsulation in PLGA", <em>J. Pharm. Innov.</em> <strong>2024</strong>. <a href="https://doi.org/10.1007/s12247-024-09880-4" target="_blank">DOI</a></li>
-            <li>S. Divi & A. Chatterjee, "Nano-thermodynamic Model for Segregation", <em>RSC Advances</em> <strong>2018</strong>, 8, 10409. <a href="https://doi.org/10.1039/C8RA00945G" target="_blank">DOI</a></li>
-        </ul>
-    </section>
-    
-    <section id="research">
-        <h2>Research Focus</h2>
-        <p>Computational modeling of molecular systems: Nanoparticles, catalysis, energy materials, drug delivery. PhD Advisor: Prof. Abhijit Chatterjee (IIT Bombay). Postdoc: Prof. Michail Stamatakis (UCL).</p>
-        <ul>
-            <li>Bimetallic nanoparticle segregation (AuPt, NiPt, AgAu) using distribution coefficients.</li>
-            <li>Kinetic Monte Carlo acceleration for catalytic surface reactions (GPU/FPGA).</li>
-            <li>Molecular dynamics for lithium extraction, nanoemulsions, deep eutectic solvents.</li>
-        </ul>
-    </section>
-    
-    <section id="coursework">
-        <h2>Teaching & Awards</h2>
-        <ul class="awards">
-            <li>R.G. Manudhane PhD Excellence Award, IIT Bombay (2018) – Outstanding thesis.</li>
-            <li>Garuda Challenge Award, PARCOMPTECH-2013, CDAC Bengaluru.</li>
-            <li>Best Poster: Research Scholars Confluence, IIT Bombay (2017).</li>
-            <li>Best Paper: ICAER 2017 (Ternary alloy segregation).</li>
-            <li>Teaching Assistant: Chemical Engineering courses, IIT Bombay & IIT Kanpur.</li>
-            <li>Faculty Coordinator: Industrial Advisory Committee & B.Tech Projects, MIT Manipal.</li>
-        </ul>
+  <header>
+    <h1>Dr. Srikanth Divi</h1>
+    <p>
+      Assistant Professor | Department of Chemical Engineering<br />
+      Manipal Institute of Technology, Manipal Academy of Higher Education
+    </p>
+
+    <nav>
+      <ul>
+        <li><a href="#" class="tab-link active" data-tab="details">Details</a></li>
+        <li><a href="#" class="tab-link" data-tab="experience">Experience</a></li>
+        <li><a href="#" class="tab-link" data-tab="projects">Projects</a></li>
+        <li><a href="#" class="tab-link" data-tab="publications">Publications</a></li>
+        <li><a href="#" class="tab-link" data-tab="research">Research</a></li>
+        <li><a href="#" class="tab-link" data-tab="teaching">Teaching</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="details" class="tab-section active">
+      <h2>Personal Details</h2>
+
+      <div class="intro">
+        <div class="intro-text">
+          <p>
+            Dr. Srikanth Divi is an Assistant Professor in the Department of Chemical Engineering at Manipal Institute of Technology, with academic and research experience spanning molecular simulations, catalysis, nanoparticles, and energy-related materials.
+          </p>
+
+          <p>
+            <strong>Office:</strong> Department of Chemical Engineering, Manipal Institute of Technology, Manipal, Karnataka, India - 576104<br />
+            <strong>Phone:</strong> +91-9490940904<br />
+            <strong>Email:</strong> <a href="mailto:srikanth.divi@manipal.edu">srikanth.divi@manipal.edu</a><br />
+            <strong>Profiles:</strong>
+            <a href="https://github.com/srikanth-divi" target="_blank">GitHub</a> |
+            <a href="https://www.linkedin.com/in/srikanth-divi/" target="_blank">LinkedIn</a> |
+            <a href="https://researcher.manipal.edu/en/persons/srikanth-divi/" target="_blank">Manipal Profile</a> |
+            <a href="https://sites.google.com/view/srikanthdivi/" target="_blank">Portfolio</a>
+          </p>
+        </div>
+
+        <div class="photo-wrap">
+          <img src="profile.jpg" alt="Dr. Srikanth Divi" class="photo" />
+          <div class="photo-note">Add your image as profile.jpg</div>
+        </div>
+      </div>
+
+      <h3>Education</h3>
+      <ul class="info-list">
+        <li><strong>Ph.D., Chemical Engineering</strong> - IIT Bombay, Mumbai (2018)</li>
+        <li><strong>M.E., Chemical Engineering</strong> - BITS Pilani, K. K. Birla Goa Campus (2011)</li>
+        <li><strong>B.Tech., Chemical Engineering</strong> - B.V. Raju Institute of Technology, JNTUH (2009)</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>
+          His academic profile combines chemical engineering fundamentals with computational methods for understanding nanoscale systems, reaction processes, and material behavior.
+        </p>
+      </div>
     </section>
 
-    <script>
-        function showTab(id) {
-            document.querySelectorAll('section').forEach(s => s.style.display = 'none');
-            document.getElementById(id).style.display = 'block';
-            document.querySelectorAll('nav a').forEach(a => a.classList.remove('tab-active'));
-            event.target.classList.add('tab-active');
-        }
-    </script>
+    <section id="experience" class="tab-section">
+      <h2>Professional Experience</h2>
+
+      <ul class="info-list">
+        <li>
+          <strong>Assistant Professor</strong> - Department of Chemical Engineering, Manipal Institute of Technology, Manipal<br />
+          <span class="muted">August 2021 - Present</span><br />
+          Contributing to teaching, student mentoring, project guidance, and departmental academic activities.
+        </li>
+
+        <li>
+          <strong>Post-Doctoral Research Associate</strong> - Department of Chemical Engineering, University College London, UK<br />
+          Worked in the group of Prof. Michail Stamatakis on kinetic Monte Carlo methods and algorithm development for catalytic surface simulations.
+        </li>
+
+        <li>
+          <strong>Doctoral Research</strong> - IIT Bombay<br />
+          Worked under Prof. Abhijit Chatterjee on nano-thermodynamic modeling, alloy nanoparticle segregation, interatomic potentials, and accelerated molecular dynamics.
+        </li>
+      </ul>
+
+      <h3>Academic Roles</h3>
+      <ul class="info-list">
+        <li>Faculty Coordinator for Industrial Advisory Committee activities.</li>
+        <li>Faculty Coordinator for B.Tech project-related academic responsibilities.</li>
+        <li>Earlier teaching assistantship experience at IIT Bombay and IIT Kanpur in Chemical Engineering.</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="tab-section">
+      <h2>Projects</h2>
+
+      <ul class="info-list">
+        <li>
+          <strong><a href="https://github.com/srikanth-divi/sim-codes" target="_blank">sim-codes</a></strong><br />
+          Code repository related to simulation methods including molecular dynamics, accelerated molecular dynamics, and Monte Carlo-based workflows.
+        </li>
+
+        <li>
+          <strong>Nano-thermodynamic model for multi-metal alloy nanoparticles</strong><br />
+          Developed a model to predict species distribution at facets, edges, vertices, and bulk regions, with an important size-independent interpretation.
+        </li>
+
+        <li>
+          <strong>Tunable mixing rules for EAM potentials</strong><br />
+          Improved embedded-atom method potentials for binary and ternary alloys using heats of mixing to obtain more realistic thermodynamic behavior.
+        </li>
+
+        <li>
+          <strong>Temperature-Programmed Molecular Dynamics (TPMD)</strong><br />
+          Developed an accelerated approach for rare-event sampling, with reported large speed-up over conventional molecular dynamics for selected systems.
+        </li>
+
+        <li>
+          <strong>Silicon thin film growth simulations</strong><br />
+          Used Parallel Replica Molecular Dynamics to study atomic processes such as hop, exchange, diffusion, and concerted atom movement during film growth.
+        </li>
+
+        <li>
+          <strong>Molecular simulation applications</strong><br />
+          Research applications include asphaltene aggregation inhibition, drug encapsulation, nanoemulsions, lithium extraction, and deep eutectic solvent systems.
+        </li>
+      </ul>
+    </section>
+
+    <section id="publications" class="tab-section">
+      <h2>Selected Publications</h2>
+
+      <ul class="info-list publication-list">
+        <li>
+          S.Y. Udaykumar, J. Carpenter, S. Divi, N.K. Das, S.B. K, A.K. Vatti, T. Banerjee, 
+          <em>Extraction of Lithium from an Aqueous Solution Using a Hydrophobic Deep Eutectic Solvent: A Combined Experimental and Classical Molecular Dynamics Study</em>,
+          <strong>Industrial & Engineering Chemistry Research</strong>, 2026, 65(1), 799-808.
+          <br />
+          <a href="https://doi.org/10.1021/acs.iecr.5c03979" target="_blank">DOI: 10.1021/acs.iecr.5c03979</a>
+        </li>
+
+        <li>
+          G.N. Mathias, K.V.K. Goud, S. Divi, A.K. Vatti, J. Carpenter, S. Manickam,
+          <em>Encapsulation of curcumin in groundnut oil-in-water nanoemulsions: Experimental analysis and molecular dynamics simulations</em>,
+          <strong>Ultrasonics Sonochemistry</strong>, 2025.
+          <br />
+          <a href="https://doi.org/10.1016/j.ultsonch.2025.107686" target="_blank">DOI: 10.1016/j.ultsonch.2025.107686</a>
+        </li>
+
+        <li>
+          Y.U. Shamanth, P.J. Boruah, A.K. Vatti, S. Divi, T. Banerjee,
+          <em>Lithium extraction using ionic liquids: Insights from quantum chemical and molecular dynamics simulations</em>,
+          <strong>Journal of Ionic Liquids</strong>, 2025.
+          <br />
+          <a href="https://doi.org/10.1016/j.jil.2025.100177" target="_blank">DOI: 10.1016/j.jil.2025.100177</a>
+        </li>
+
+        <li>
+          A.K. Vatti, S. Divi, P. Dey,
+          <em>Effectiveness of inhibitors to prevent asphaltene aggregation: Insights from atomistic and molecular simulations</em>,
+          <strong>The Journal of Chemical Physics</strong>, 2024.
+          <br />
+          <a href="https://doi.org/10.1063/5.0190779" target="_blank">DOI: 10.1063/5.0190779</a>
+        </li>
+
+        <li>
+          S. Divi et al.,
+          <em>Modelling of Prednisolone Drug Encapsulation in Poly(Lactic-co-Glycolic Acid) Polymer Carrier Using Molecular Dynamics Simulations</em>,
+          <strong>Journal of Pharmaceutical Innovation</strong>, 2024.
+          <br />
+          <a href="https://doi.org/10.1007/s12247-024-09880-4" target="_blank">DOI: 10.1007/s12247-024-09880-4</a>
+        </li>
+
+        <li>
+          S. Divi, A. Chatterjee,
+          <em>Generalized Nano-thermodynamic Model for Capturing Size-dependent Segregation in Multi-Metal Alloy Nanoparticles</em>,
+          <strong>RSC Advances</strong>, 2018, 8, 10409-10424.
+          <br />
+          <a href="https://doi.org/10.1039/C8RA00945G" target="_blank">DOI: 10.1039/C8RA00945G</a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="research" class="tab-section">
+      <h2>Research</h2>
+
+      <p>
+        Dr. Divi's research focuses on computational chemical engineering, especially molecular simulations of materials and chemical systems relevant to catalysis, nanoparticles, interfaces, and advanced formulations.
+      </p>
+
+      <div class="two-col">
+        <div>
+          <h3>Research Areas</h3>
+          <ul class="info-list">
+            <li>Molecular dynamics and Monte Carlo simulations.</li>
+            <li>Alloy nanoparticles, segregation, and nano-thermodynamics.</li>
+            <li>Catalytic surface reactions and kinetic Monte Carlo methods.</li>
+            <li>Energy materials, lithium extraction, and interfacial systems.</li>
+            <li>Drug delivery, polymer carriers, and nanoemulsions.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Research Highlights</h3>
+          <ul class="info-list">
+            <li>Modeled species segregation in AuPt, NiPt, and AgAu bimetallic nanoparticles.</li>
+            <li>Designed improved EAM formulations for alloy thermodynamics.</li>
+            <li>Developed accelerated rare-event methods such as TPMD.</li>
+            <li>Worked on pattern-recognition acceleration in Zacros KMC workflows.</li>
+            <li>Studied morphology evolution during silicon thin film growth.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching" class="tab-section">
+      <h2>Teaching</h2>
+
+      <ul class="info-list teaching-list">
+        <li>
+          <strong>Current Academic Role</strong><br />
+          Teaching and mentoring students in the Department of Chemical Engineering at MIT Manipal, alongside project supervision and academic coordination.
+        </li>
+
+        <li>
+          <strong>Teaching Assistant Experience</strong><br />
+          Served as Teaching Assistant in the Department of Chemical Engineering at IIT Bombay and IIT Kanpur.
+        </li>
+
+        <li>
+          <strong>Student Guidance</strong><br />
+          Involved in B.Tech project coordination and broader academic support within the department.
+        </li>
+      </ul>
+
+      <h3>Awards and Recognition</h3>
+      <ul class="info-list teaching-list">
+        <li><strong>R.G. Manudhane PhD Excellence Award</strong> - IIT Bombay, 2018.</li>
+        <li><strong>Garuda Challenge Award</strong> - PARCOMPTECH-2013, CDAC Bengaluru.</li>
+        <li><strong>Best Poster Award</strong> - Research Scholars Confluence and Alumni Meet, IIT Bombay, 2017.</li>
+        <li><strong>Best Paper Award</strong> - ICAER 2017, for work related to segregation in ternary alloys.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Dr. Srikanth Divi | Faculty Profile
+  </footer>
+
+  <script>
+    const tabLinks = document.querySelectorAll(".tab-link");
+    const tabSections = document.querySelectorAll(".tab-section");
+
+    tabLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("data-tab");
+
+        tabLinks.forEach(item => item.classList.remove("active"));
+        tabSections.forEach(section => section.classList.remove("active"));
+
+        this.classList.add("active");
+        document.getElementById(targetId).classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>
-```
-
-Changes teach accessibility: Darker blues (contrast ratio >7:1), thicker borders (6px), hover effects, bolder fonts/shadows. Photo responsive. Matches screenshot vibrancy. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/36828176/93c74c44-1e4e-4248-b58e-6e75d510c070/SrikanthDivi_CV_31Jan2026.docx)
